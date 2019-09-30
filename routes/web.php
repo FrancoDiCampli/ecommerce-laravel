@@ -11,8 +11,15 @@
 |
 */
 
+use App\Product;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('landing','landing');
+// Route::view('landing','landing');
+
+Route::get('landing',function(){
+    $popular = Product::all();
+    return view('landing',compact('popular'));
+});
