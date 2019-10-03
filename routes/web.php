@@ -1,25 +1,24 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 use App\Product;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/productos', 301);
 
-// Route::view('landing','landing');
+Route::resource('productos', 'ProductosController');
+Route::get('producto/{category}','ProductosController@clasified')->name('producto.categoria');
+// Route::get('/product', function () {
+//     $product = Product::orderBy('name','asc')->first();
+//     $related = Product::inRandomOrder()->take(3)->get();
+//     return view('front.product',compact('product','related'));
 
-Route::get('landing',function(){
-    $popular = Product::all();
-    return view('landing',compact('popular'));
-});
+// });
+
+
+// Route::view('cart','front.shopingcart');
+
+// Route::get('landing',function(){
+//     $popular = Product::all();
+//     return view('landing',compact('popular'));
+// });

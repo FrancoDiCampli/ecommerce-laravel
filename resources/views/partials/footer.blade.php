@@ -1,7 +1,7 @@
 <footer class="site-footer bg-white">
     <div class="container">
         <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="row">
             <div class="col-md-5">
                 <h2 class="footer-heading mb-4">About Us</h2>
@@ -25,13 +25,7 @@
             </div>
             </div>
         </div>
-        <div class="col-md-3 ml-auto">
-            <h2 class="footer-heading mb-4">Featured Product</h2>
-            <a href="#"><img src="images/product_1_bg.jpg" alt="Image" class="img-fluid mb-3"></a>
-            <h4 class="h5">Leather Brown Shoe</h4>
-            <strong class="text-black mb-3 d-inline-block">$60.00</strong>
-            <p><a href="#" class="btn btn-black rounded-0">Add to Cart</a></p>
-        </div>
+
         </div>
         <div class="row pt-5 mt-5 text-center">
         <div class="col-md-12">
