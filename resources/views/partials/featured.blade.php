@@ -38,7 +38,17 @@
                                 <div class="price"><del class="mr-2">{{$producto->precio}}</del> {{$producto->descontado()}}</div>
                             </div>
                             <p>
-                                <a href="#" class="btn btn-black rounded-0 d-block d-lg-inline-block">Add To Cart</a>
+                                <form action="{{route('shop.store')}}" method="POST" class="col-md-4">
+                                    @csrf
+                                <input type="text" name="id" value="{{$producto->id}}" hidden>
+                                <div class="form-group">
+                                    <label for="">Cantidad</label>
+                                    <input type="number" value="1" name="cantidad" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-black rounded-1 d-block d-lg-inline-block">Add to cart</button>
+
+                                </form>
+
                             </p>
                         </div>
                     </div>
