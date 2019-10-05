@@ -12,8 +12,13 @@
             </div>
             <div class="col-6">
                 <p class="mb-0 float-right">
-                <span class="mr-3"><a href="tel://#"> <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">(+1) 234 5678 9101</span></a></span>
-                <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span><span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
+                <span class="mr-3"><a href="tel://#">
+
+
+                    <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span>
+                    <span class="d-none d-lg-inline-block text-black">(+1) 234 5678 9101</span></a></span>
+                    <span><a href="#"><span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span>
+                    <span class="d-none d-lg-inline-block text-black">shop@yourdomain.com</span></a></span>
                 </p>
 
             </div>

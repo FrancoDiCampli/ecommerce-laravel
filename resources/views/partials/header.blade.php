@@ -24,10 +24,16 @@
                     </div>
                   </li>
                 <li><a href="#" class="nav-link">About Us</a></li>
-                <li><a href="#" class="nav-link">Special</a></li>
-                <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
-                <li><a href="#blog-section" class="nav-link">Blog</a></li>
+
                 <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                <li>
+                <a href="{{route('showcart')}}">
+                        <span class="icon-shopping-cart mr-2" style="position: relative; top: 2px;"></span>
+                            <span class="d-none d-lg-inline-block text-black">Cart:{{Session::has('cart') ? Session::get('cart')->cantidad : 0}}</span>
+                    </a></span>
+
+                    </a>
+                </li>
             </ul>
             </nav>
         </div>

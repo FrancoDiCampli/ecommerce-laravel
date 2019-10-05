@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use App\Producto;
+
 use App\Categoria;
 use Illuminate\Http\Request;
-use ShoppingCart;
+use Session;
 
 
 class ShopController extends Controller
@@ -18,21 +20,49 @@ class ShopController extends Controller
 
     public function store(Request $request){
 
-        $prod = Producto::find($request->id);
+        $request->session()->flush();
+        return redirect()->route('productos.index');
 
-        $r = [$prod->id, $prod->producto, $request->cantidad, $prod->precio];
-        session(['fila' => $r]);
+        // $prod = Producto::find($request->id);
 
-        return redirect()->route('shop.show',1);
+        // $r = [$prod->id, $prod->producto, $request->cantidad, $prod->precio];
+        // session(['fila' => $r]);
+
+        // return redirect()->route('shop.show',1);
 
     }
 
-    public function show($id){
+    public function showcart(Request $reques){
+        $categorias = Categoria::all();
+        $productos = null;
+        if(!Session::has('cart')){
+            return view('front.shoppingcart');
+        }
+
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        $productos = $cart->items;
+        $total = $cart->total;
+        $importes = ['total'=>$cart->total,'descuentos'=>$cart->descuentos];
+        return view('front.shoppingcart',compact('productos','importes','categorias'));
+
+    }
+
+    public function addItem(Request $request){
+
+        $producto = Producto::find($request->id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($producto,$producto->id,$request->cantidad);
+        $request->session()->put('cart',$cart);
+        $request->session()->get('cart');
+        return redirect()->route('showcart');
+
+    }
 
 
-        $row = session()->all();
-
-        return redirect()->route('shop.index');
-
+    public function pagar(){
+        $pedido = Session::get('cart');
+        dd($pedido);
     }
 }
